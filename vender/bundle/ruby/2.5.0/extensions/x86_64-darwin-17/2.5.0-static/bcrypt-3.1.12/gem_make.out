@@ -1,0 +1,19 @@
+current directory: /Users/k.o/dive/event-keeper2/vender/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+/Users/k.o/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20180823-1114-y3rehk.rb extconf.rb
+creating Makefile
+
+current directory: /Users/k.o/dive/event-keeper2/vender/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" clean
+
+current directory: /Users/k.o/dive/event-keeper2/vender/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.bundle
+
+current directory: /Users/k.o/dive/event-keeper2/vender/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20180823-1114-16tucm8

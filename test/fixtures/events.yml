@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  content: MyText
+  image: MyString
+  event_day: 2018-08-23
+  opening_time: 2018-08-23 08:43:34
+  ending_time: 2018-08-23 08:43:34
+  maximum_number_of_people: 1
+  deadline_of_participant_for_event: 2018-08-23 08:43:34
+  receptionist: false
+  organizer_id: 1
+
+two:
+  title: MyString
+  content: MyText
+  image: MyString
+  event_day: 2018-08-23
+  opening_time: 2018-08-23 08:43:34
+  ending_time: 2018-08-23 08:43:34
+  maximum_number_of_people: 1
+  deadline_of_participant_for_event: 2018-08-23 08:43:34
+  receptionist: false
+  organizer_id: 1

@@ -1,0 +1,67 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :event_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :event_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :event_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_day %>
+    <%= form.date_select :event_day, id: :event_event_day %>
+  </div>
+
+  <div class="field">
+    <%= form.label :opening_time %>
+    <%= form.datetime_select :opening_time, id: :event_opening_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ending_time %>
+    <%= form.datetime_select :ending_time, id: :event_ending_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maximum_number_of_people %>
+    <%= form.number_field :maximum_number_of_people, id: :event_maximum_number_of_people %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deadline_of_participant_for_event %>
+    <%= form.datetime_select :deadline_of_participant_for_event, id: :event_deadline_of_participant_for_event %>
+  </div>
+
+  <div class="field">
+    <%= form.label :receptionist %>
+    <%= form.check_box :receptionist, id: :event_receptionist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :organizer_id %>
+    <%= form.number_field :organizer_id, id: :event_organizer_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

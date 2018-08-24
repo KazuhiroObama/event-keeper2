@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "alert #{key}") %>
+<% end %>
 
 <p>
   <strong>Title:</strong>
@@ -10,10 +12,10 @@
   <%= @event.content %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Image:</strong>
   <%= @event.image %>
-</p>
+</p> -->
 
 <p>
   <strong>Event day:</strong>
@@ -48,6 +50,23 @@
 <p>
   <strong>Organizer:</strong>
   <%= @event.organizer_id %>
+</p>
+
+<p>コメント一覧</p>
+<div id="comments_area">
+<!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/index', locals: { comments: @comments, event: @event } %>
+</div>
+
+<!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+<%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
+
+<p>
+  <% if @participant.present? %>
+    <%= link_to '参加キャンセル', participant_path(id: @participant.id), method: :delete, class: 'btn btn-warning', data: { confirm: '参加申し込みをキャンセルしますか？' } %>
+  <% else %>
+    <%= link_to '参加申し込み', participants_path(event_id: @event.id), method: :post, class: 'btn btn-primary', data: { confirm: '参加申し込みを確定させますか？' } %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

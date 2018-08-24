@@ -15,6 +15,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'  # ログイン管理用
+gem 'carrierwave'  # 画像投稿用
+gem 'mini_magick'  # 画像投稿用
+gem 'faker' # テストデータ追加
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

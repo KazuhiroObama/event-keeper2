@@ -1,0 +1,2 @@
+module EventParticipantManagementsHelper
+end

@@ -21,15 +21,10 @@
     <%= form.text_area :content, id: :event_content %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image, id: :event_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event_day %>
-    <%= form.date_select :event_day, id: :event_event_day %>
-  </div>
+    <%= form.file_field :image, id: :event_image %>
+  </div> -->
 
   <div class="field">
     <%= form.label :opening_time %>
@@ -49,17 +44,7 @@
   <div class="field">
     <%= form.label :deadline_of_participant_for_event %>
     <%= form.datetime_select :deadline_of_participant_for_event, id: :event_deadline_of_participant_for_event %>
-  </div>
-
-  <div class="field">
-    <%= form.label :receptionist %>
-    <%= form.check_box :receptionist, id: :event_receptionist %>
-  </div>
-
-  <div class="field">
-    <%= form.label :organizer_id %>
-    <%= form.number_field :organizer_id, id: :event_organizer_id %>
-  </div>
+  </div
 
   <div class="actions">
     <%= form.submit %>

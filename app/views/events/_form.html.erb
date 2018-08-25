@@ -11,42 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :event_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :event_content %>
-  </div>
-
-  <!-- <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :event_image %>
-  </div> -->
-
-  <div class="field">
-    <%= form.label :opening_time %>
-    <%= form.datetime_select :opening_time, id: :event_opening_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ending_time %>
-    <%= form.datetime_select :ending_time, id: :event_ending_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :maximum_number_of_people %>
-    <%= form.number_field :maximum_number_of_people, id: :event_maximum_number_of_people %>
-  </div>
-
-  <div class="field">
-    <%= form.label :deadline_of_participant_for_event %>
-    <%= form.datetime_select :deadline_of_participant_for_event, id: :event_deadline_of_participant_for_event %>
-  </div
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="container-fluid event-show-field">
+    <div class="row event-show-list">
+      <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+      <div class="col-xs-0 col-sm-0 col-md-8 col-lg-8">
+        <div class="event-show title">
+          タイトル：
+          <%= form.text_field :title, id: :event_title %>
+        </div>
+        <div class="event-show content">
+          内容：
+          <%= form.text_area :content, id: :event_content %>
+        </div>
+        <div class="event-show opening_time">
+          開始時間：
+          <%= form.datetime_select :opening_time, id: :event_opening_time %>
+        </div>
+        <div class="event-show ending_time">
+          終了時間：
+          <%= form.datetime_select :ending_time, id: :event_ending_time %>
+        </div>
+        <div class="event-show maximum">
+          定員数：
+          <%= form.number_field :maximum_number_of_people, id: :event_maximum_number_of_people %>
+        </div>
+        <div class="event-show mail-send-check">
+          以下の場合において、メール送信による確認が必要な場合はチェックをつけて下さい。</br></br>
+          参加申し込みがあった時 <%= form.check_box :management_information, as: :boolean %></br>
+          満員になった時 <%= form.check_box :full_information, as: :boolean %></br>
+          コメントされた時 <%= form.check_box :comment_information, as: :boolean %></br>
+          キャンセルされた時 <%= form.check_box :cancel_information, as: :boolean %></br></br>
+        <div class="actions">
+          <%= form.submit "確定", class: "btn btn-primary" %>
+        </div>
+      </div>
+      <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+    </div>
   </div>
 <% end %>

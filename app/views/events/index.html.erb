@@ -1,40 +1,42 @@
-<h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Event day</th>
-      <th>Opening time</th>
-      <th>Organizer</th>
-      <th>Title</th>
-      <th>maximum_number_of_people</th>
-      <th>満席?</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.event_day %></td>
-        <td><%= event.opening_time.hour %>:<%= event.opening_time.min %></td>
-        <td><%= link_to event.organizer_id, user_path(id: event.organizer_id) %></td>
-        <td><%= event.title %></td>
-        <td><%= event.maximum_number_of_people %></td>
-        <% if event.participants.count == event.maximum_number_of_people %>
-          <td>満席</td>
-        <% else %>
-          <td>空きあり</td>
-        <% end %>
-        <td>
-          <%= link_to 'Show', event %>
-          <%= link_to 'Edit', edit_event_path(event) %>
-          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+<div class="container-fluid">
+  <div class="row event-list-top">
+    <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+    <div class="event-schedule-area col-xs-12 col-sm-6 col-md-10 col-lg-10">
+      <h1>参加可能イベント一覧</h1>
+    </div>
+  </div>
+</div>
+<% @events.each do |event| %>
+  <div class="container-fluid event-field">
+    <div class="row event-list">
+      <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+      <div class="event-schedule-area col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <p class="year"><%= event.event_day.year %></p>
+        <p class="date"><%= event.event_day.month %>/<%= event.event_day.day %></p>
+        <p class="time">
+          (<%= @day_of_the_week[event.event_day.wday] %>)
+          <span class="dtstart"><%= event.opening_time.hour %>:<%= event.opening_time.min %>~</span>
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-0 col-lg-0"></div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="upcoming-event-inner">
+          <p class="event-owner">
+            企画者：
+            <%= link_to event.organizer.name, user_path(id: event.organizer_id) %>
+          </p>
+          <p class="event-title">
+            タイトル：
+            <%= link_to event.title, event_path(id: event.id) %>
+          </p>
+          <div class="event-number-of-participants">
+            <%= event.participants.count %>/<%= event.maximum_number_of_people %>人
+            <% if event.participants.count == event.maximum_number_of_people %>
+              <span class="label label-danger">満席</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

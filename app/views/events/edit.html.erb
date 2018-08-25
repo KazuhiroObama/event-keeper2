@@ -1,6 +1,26 @@
-<h1>Editing Event</h1>
+<div class="container-fluid">
+  <div class="row user-show-top">
+    <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <h1>イベント情報修正</h1>
+    </div>
+  </div>
+</div>
 
 <%= render 'form', event: @event %>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<% if @event.organizer.id == current_user.id %>
+  <div class="container-fluid">
+    <div class="row user-show-buttom">
+      <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      </br></br></br>
+        <%= link_to "イベントを破棄してもよろしいですか？",
+            event_path(id: @event.id),
+            method: :delete,
+            data: { confirm: "本当にイベントを破棄しますか？" },
+            class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+<% end %>

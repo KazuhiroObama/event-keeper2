@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EventParticipantManagementTest < ActiveSupport::TestCase
+class CommentInformationMailerTest < ActionMailer::TestCase
   # test "the truth" do
   #   assert true
   # end

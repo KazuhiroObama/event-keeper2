@@ -1,4 +1,90 @@
-<p>
-  <strong>email:</strong>
-  <%= @user.email %>
-</p>
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "alert #{key}") %>
+<% end %>
+
+<div class="container-fluid">
+  <div class="row user-show-upper">
+    <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <h1>
+        <%= @user.name %></br>
+      </h1>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 edit-profile-button-space">
+      <% if @user.id == current_user.id %>
+        <%= link_to 'プロフィールを編集', edit_user_registration_path(@user), class: "btn btn-default edit-profile-button", role: "button" %>
+      <% end %>
+    </div>
+    <div class="col-xs-0 col-md-2 col-lg-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-0 col-md-2 col-lg-2"></div>
+    <div class="col-xs-12 col-md-8 col-lg-3">
+      </br></br></br></br>
+      開催予定イベント<%= @organizer_future_events.length if @organizer_future_events %>件
+    </div>
+    <div class="col-xs-12 col-md-8 col-lg-3">
+      </br></br></br></br>
+      参加予定イベント<%= @participant_future_events.length if @participant_future_events %>件
+    </div>
+    <div class="col-xs-0 col-md-2 col-lg-2"></div>
+  </div>
+  </br>
+  <% @organizer_future_events.zip(@participant_future_events) do |oevent, pevent| %>
+    <div class="row">
+      <div class="col-xs-0 col-md-2 col-lg-2"></div>
+      <div class="col-xs-12 col-md-8 col-lg-3">
+        <% if oevent.present? %>
+          <%= oevent.event_day.month %>
+          /<%= oevent.event_day.day %>
+          (<%= @day_of_the_week[oevent.event_day.wday] %>)
+          <%= link_to oevent.title, event_path(id: oevent.id) %>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-md-8 col-lg-3">
+        <% if pevent.present? %>
+          <%= pevent.event_day.month %>
+          /<%= pevent.event_day.day %>
+          (<%= @day_of_the_week[pevent.event_day.wday] %>)
+          <%= link_to pevent.title, event_path(id: pevent.id) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-xs-0 col-md-2 col-lg-2"></div>
+    <div class="col-xs-12 col-md-8 col-lg-3">
+      </br></br></br></br>
+      過去開催したイベント<%= @organizer_post_events.length if @organizer_post_events %>件
+    </div>
+    <div class="col-xs-12 col-md-8 col-lg-3">
+      </br></br></br></br>
+      過去参加したイベント<%= @participant_post_events.length if @participant_post_events %>件
+    </div>
+    <div class="col-xs-0 col-md-2 col-lg-2"></div>
+  </div>
+  </br>
+  <% @organizer_post_events.zip(@participant_post_events) do |oevent, pevent| %>
+    <div class="row">
+      <div class="col-xs-0 col-md-2 col-lg-2"></div>
+      <div class="col-xs-12 col-md-8 col-lg-3">
+        <% if oevent.present? %>
+          <%= oevent.event_day.month %>
+          /<%= oevent.event_day.day %>
+          (<%= @day_of_the_week[oevent.event_day.wday] %>)
+          <%= link_to oevent.title, event_path(id: oevent.id) %>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-md-8 col-lg-3">
+        <% if pevent.present? %>
+          <%= pevent.event_day.month %>
+          /<%= pevent.event_day.day %>
+          (<%= @day_of_the_week[pevent.event_day.wday] %>)
+          <%= link_to pevent.title, event_path(id: oevent.id) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,10 +1,16 @@
 <ul>
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
-      <li>
-        <p><%= comment.user_id %></p>
-        <p><%= comment.content %></p>
-      </li>
+      <p><%= comment.user.email %></p>
+      <p>
+        <%= comment.content %>
+        <%= link_to event_comment_path(event_id: event.id, id: comment.id),
+            method: :delete,
+            remote: true,
+            data: { confirm: "コメントを削除しますか？" } do %>
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        <% end %>
+      </p>
     <% end %>
   <% end %>
 </ul>

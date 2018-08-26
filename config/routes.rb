@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :events do
+    get :post, on: :collection
     resources :comments, only: [:create, :destroy]
   end
   root to: "events#index"

@@ -9,6 +9,13 @@ class EventsController < ApplicationController
     @day_of_the_week = %w[日 月 火 水 木 金 土]
   end
 
+  def post
+    events = Event.order(:opening_time)
+    @events = []
+    events.each { |event| @events << event if Time.zone.now >= event.opening_time }
+    @day_of_the_week = %w[日 月 火 水 木 金 土]
+  end
+
   def show
     @management = current_user.managements.find_by(event_id: @event.id)
     @comments = @event.comments

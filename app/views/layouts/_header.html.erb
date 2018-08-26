@@ -7,11 +7,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">HOME</a>
       </div>
       <div id="gnavi" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
+          <li><%= link_to '過去イベント一覧', post_events_path %></li>
           <li><%= link_to '新規イベント作成', new_event_path %></li>
           <li><%= link_to "マイページ", user_path(id: current_user.id) %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>

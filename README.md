@@ -1,24 +1,7 @@
-# README
+Event-keeper
+========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Description
+[@now_cold](https://twitter.com/now_cold?lang=ja)が作成したイベント管理アプリ。　　
+DIVE INTO CODEでの卒業課題です。　　
+スクールでイベントを開催する際、企画者の負担を出来るだけ減らしたいという思いで作成しました。

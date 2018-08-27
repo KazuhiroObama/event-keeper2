@@ -25,6 +25,9 @@ Event-keeper
 複数の利用者が必要なイベント投稿管理という性質上、ローカルでの使用は想定していません。以下のherokuにデプロイしたアプリを使用して頂ければ幸いです。
 https://event-keeper2.herokuapp.com/
 
+## ER Diagram
+![event-keeper-er-diagram](https://github.com/KazuhiroObama/image/blob/master/images/%E5%8D%92%E6%A5%AD%E6%A1%88%E4%BB%B6ER%E5%9B%B3.png)
+
 ## Advice
 Read meに書くべきではないかもしれませんが、卒業課題のアプリ制作のでの反省点と今後アプリを初めて作る人へのアドバイスを記述します。
 
@@ -50,9 +53,6 @@ Read meに書くべきではないかもしれませんが、卒業課題のア�
 - 読みやすいコード
 
 とりあえず思いつくのはこのくらい。他に学んだ方がいいものとかあれば是非教えてください。
-
-## ER Diagram
-![event-keeper-er-diagram](https://github.com/KazuhiroObama/image/blob/master/images/%E5%8D%92%E6%A5%AD%E6%A1%88%E4%BB%B6ER%E5%9B%B3.png)
 
 ## Licence
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)

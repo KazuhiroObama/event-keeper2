@@ -1,19 +1,22 @@
-<h2>パスワード変更</h2>
+<div class="devise_form_title">
+  <h2>パスワード変更</h2>
+</div>
+</br>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
+  <%= f.label :password, "新規パスワード" %>
+  <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %>文字以上)</em>
+  <% end %>
   <div class="field">
-    <%= f.label :password, "新規パスワード" %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %>文字以上)</em><br />
-    <% end %>
     <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
   </div>
 
+  <%= f.label :password_confirmation, "確認用パスワード" %>
   <div class="field">
-    <%= f.label :password_confirmation, "確認用パスワード" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -22,5 +25,7 @@
     <%= f.submit "パスワード変更", class: "btn btn-primary" %>
   </div>
 <% end %>
+</br>
 
 <%= render "devise/shared/links" %>
+</br>

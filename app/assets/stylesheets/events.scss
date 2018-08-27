@@ -1,52 +1,73 @@
+.navbar-default{
+  background-color: #fff;
+}
+
 // events/index.html.erbに関して
 .event-field{
   padding-top: 10px;
   margin-left: 50px;
   margin-right: 50px;
 }
-
 .event-list{
   border-bottom: 1px solid;
   border-color: #999;
   padding-bottom: 10px;
 }
-
 .event-schedule-area p{
   margin: 0;
 }
-
 .event-schedule-area .date{
   font-size: 27px;
   font-weight: bold;
 }
-
 .event-schedule-area .time .dtstart{
   font-size: 20px;
 }
-
 .event-title{
   font-size: 20px;
 }
-
 
 // events/show.html.erbに関して
 .event-show{
   margin: 16px;
   padding-bottom: 16px;
 }
-
 .event-show-list .title{
   font-size: 25.2px;
 }
-
 .event-show{
   border-bottom: 1px solid;
   border-color: #999;
 }
-
 .event-show-list .content{
   font-size: 20px;
 }
 .number-of-remaining-participants{
   text-align: center;
+}
+
+// deviseに関する見た目調整。instagramを流用
+body{
+  font-size: 16px;
+  background-color: #fafafa;
+  height: 100%;
+}
+.devise_form{
+  margin: 20px;
+  height: 80%;
+  border: solid 1px rgb(230, 230, 230);
+  margin: 10px;
+  background-color: #fff;
+}
+.devise_form-title{
+  font-size: 50px;
+  text-align: center;;
+}
+.field{
+  display: flex;
+}
+.field input{
+  border: solid 1px rgb(230, 230, 230);
+  border-radius: 4px;
+  width: 100%;
 }

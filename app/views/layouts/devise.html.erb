@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EventKeeper2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-0 col-md-4 col-lg-4"></div>
+        <div class="col-xs-12 col-md-4 col-lg-4 devise_form">
+
+          <%= yield %>
+
+        </div>
+        <div class="col-xs-0 col-md-0 col-lg-4"></div>
+      </div>
+    </div>
+  </body>
+</html>

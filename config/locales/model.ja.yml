@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      comment: "コメント"
+      event: "イベント"
+      user: "ユーザー"
+    attributes:
+      comment:
+        content: "内容"
+      event:
+        title: "タイトル"
+        content: "内容"
+        image: "画像"
+        event_day: "開催日"
+        opening_time: "開始時間"
+        ending_time: "終了時間"
+        maximum_number_of_people: "参加可能人数"
+        deadline_of_participant_for_event: "申込締切"
+        receptionist: "参加受付"
+        organizer_id: "主催者id"
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"

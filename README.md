@@ -53,3 +53,9 @@ Read meに書くべきではないかもしれませんが、卒業課題のア�
 
 ## ER Diagram
 ![event-keeper-er-diagram](https://github.com/KazuhiroObama/image/blob/master/images/%E5%8D%92%E6%A5%AD%E6%A1%88%E4%BB%B6ER%E5%9B%B3.png)
+
+## Licence
+[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+
+## Author
+[KazuhiroObama](https://github.com/KazuhiroObama)

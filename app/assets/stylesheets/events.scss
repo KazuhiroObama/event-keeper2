@@ -1,3 +1,8 @@
+body{
+  font-size: 16px;
+  background-color: #fafafa;
+  height: 100%;
+}
 .navbar-default{
   background-color: #fff;
 }
@@ -47,11 +52,6 @@
 }
 
 // deviseに関する見た目調整。instagramを流用
-body{
-  font-size: 16px;
-  background-color: #fafafa;
-  height: 100%;
-}
 .devise_form{
   margin: 20px;
   height: 80%;
@@ -70,4 +70,12 @@ body{
   border: solid 1px rgb(230, 230, 230);
   border-radius: 4px;
   width: 100%;
+}
+
+.user-event-zone{
+  border: solid 1px rgb(230, 230, 230);
+  background-color: #fff;
+  padding: 20px;
+  margin: 0px;
+  min-height: 200px;
 }

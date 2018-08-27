@@ -11,7 +11,7 @@
       </h1>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 edit-profile-button-space">
-      <% if @user.id == current_user.id %>
+      <% if current_user && @user.id == current_user.id %>
         <%= link_to 'プロフィールを編集', edit_user_registration_path(@user), class: "btn btn-default edit-profile-button", role: "button" %>
       <% end %>
     </div>

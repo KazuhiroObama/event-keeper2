@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @management = current_user.managements.find_by(event_id: @event.id)
+    @management = current_user.managements.find_by(event_id: @event.id) if current_user.present?
     @comments = @event.comments
     @comment = @event.comments.build
     @day_of_the_week = %w[日 月 火 水 木 金 土]

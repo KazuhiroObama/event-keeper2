@@ -65,7 +65,9 @@
         <%= render partial: 'comments/index', locals: { comments: @comments, event: @event } %>
       </div>
 
-      <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
+      <% if user_signed_in? %>
+        <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
+      <% end %>
 
       </br></br></br>
       <% if current_user && @event.organizer.id == current_user.id %>

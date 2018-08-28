@@ -12,12 +12,11 @@
 
       <div class="event-show eventdate">
         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-        <%= @event.event_day.year %>-<%= @event.event_day.month %>-<%= @event.event_day.day %>
-        (<%= @day_of_the_week[@event.event_day.wday] %>)
-        <%= @event.opening_time.hour %>:<%= @event.opening_time.min %>
-        ~
+        <%= @event.opening_time.strftime('%Y/%-m/%d') %>
+        (<%= @day_of_the_week[@event.opening_time.wday] %>)
+        <%= @event.opening_time.strftime('%-H:%M ~ ') %>
         <% if @event.ending_time.present? %>
-          <%= @event.ending_time.hour %>:<%= @event.ending_time.min %>
+          <%= @event.ending_time.strftime('%-H:%M') %>
         <% end %>
       </div>
 

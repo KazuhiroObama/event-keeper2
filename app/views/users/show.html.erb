@@ -27,12 +27,11 @@
         </br></br>
         <% @organizer_future_events.each do |oevent| %>
           <% if oevent.present? %>
-            <% if oevent.event_day.year != Time.zone.now.year %>
-              <%= oevent.event_day.year %>年
+            <% if oevent.opening_time.year != Time.zone.now.year %>
+              <%= oevent.opening_time.strftime('%Y年') %>
             <% end %>
-            <%= oevent.event_day.month %>
-            /<%= oevent.event_day.day %>
-            (<%= @day_of_the_week[oevent.event_day.wday] %>)
+            <%= oevent.opening_time.strftime('%-m/%d') %>
+            (<%= @day_of_the_week[oevent.opening_time.wday] %>)
             <%= link_to oevent.title, event_path(id: oevent.id) %>
           <% end %>
           </br>
@@ -46,12 +45,11 @@
         </br></br>
         <% @participant_future_events.each do |pevent| %>
           <% if pevent.present? %>
-            <% if pevent.event_day.year != Time.zone.now.year %>
-              <%= pevent.event_day.year %>年
+            <% if pevent.opening_time.year != Time.zone.now.year %>
+              <%= pevent.opening_time.strftime('%Y年') %>
             <% end %>
-            <%= pevent.event_day.month %>
-            /<%= pevent.event_day.day %>
-            (<%= @day_of_the_week[pevent.event_day.wday] %>)
+            <%= pevent.opening_time.strftime('%-m/%d') %>
+            (<%= @day_of_the_week[pevent.opening_time.wday] %>)
             <%= link_to pevent.title, event_path(id: pevent.id) %>
           <% end %>
           </br>
@@ -70,12 +68,11 @@
         </br></br>
         <% @organizer_post_events.each do |oevent| %>
           <% if oevent.present? %>
-            <% if oevent.event_day.year != Time.zone.now.year %>
-              <%= oevent.event_day.year %>年
+            <% if oevent.opening_time.year != Time.zone.now.year %>
+              <%= oevent.opening_time.strftime('%Y年') %>
             <% end %>
-            <%= oevent.event_day.month %>
-            /<%= oevent.event_day.day %>
-            (<%= @day_of_the_week[oevent.event_day.wday] %>)
+            <%= oevent.opening_time.strftime('%-m/%d') %>
+            (<%= @day_of_the_week[oevent.opening_time.wday] %>)
             <%= link_to oevent.title, event_path(id: oevent.id) %>
           <% end %>
           </br>
@@ -88,12 +85,11 @@
         </br></br>
         <% @participant_post_events.each do |pevent| %>
           <% if pevent.present? %>
-            <% if pevent.event_day.year != Time.zone.now.year %>
-              <%= pevent.event_day.year %>年
+            <% if pevent.opening_time.year != Time.zone.now.year %>
+              <%= pevent.opening_time.strftime('%Y年') %>
             <% end %>
-            <%= pevent.event_day.month %>
-            /<%= pevent.event_day.day %>
-            (<%= @day_of_the_week[pevent.event_day.wday] %>)
+            <%= pevent.opening_time.strftime('%-m/%d') %>
+            (<%= @day_of_the_week[pevent.opening_time.wday] %>)
             <%= link_to pevent.title, event_path(id: pevent.id) %>
           <% end %>
           </br>

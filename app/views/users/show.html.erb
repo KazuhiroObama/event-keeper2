@@ -30,7 +30,7 @@
             <% if oevent.opening_time.year != Time.zone.now.year %>
               <%= oevent.opening_time.strftime('%Y年') %>
             <% end %>
-            <%= oevent.opening_time.strftime('%-m/%d') %>
+            <%= oevent.opening_time.strftime('%m/%d') %>
             (<%= @day_of_the_week[oevent.opening_time.wday] %>)
             <%= link_to oevent.title, event_path(id: oevent.id) %>
           <% end %>
@@ -48,7 +48,7 @@
             <% if pevent.opening_time.year != Time.zone.now.year %>
               <%= pevent.opening_time.strftime('%Y年') %>
             <% end %>
-            <%= pevent.opening_time.strftime('%-m/%d') %>
+            <%= pevent.opening_time.strftime('%m/%d') %>
             (<%= @day_of_the_week[pevent.opening_time.wday] %>)
             <%= link_to pevent.title, event_path(id: pevent.id) %>
           <% end %>
@@ -71,7 +71,7 @@
             <% if oevent.opening_time.year != Time.zone.now.year %>
               <%= oevent.opening_time.strftime('%Y年') %>
             <% end %>
-            <%= oevent.opening_time.strftime('%-m/%d') %>
+            <%= oevent.opening_time.strftime('%m/%d') %>
             (<%= @day_of_the_week[oevent.opening_time.wday] %>)
             <%= link_to oevent.title, event_path(id: oevent.id) %>
           <% end %>
@@ -88,7 +88,7 @@
             <% if pevent.opening_time.year != Time.zone.now.year %>
               <%= pevent.opening_time.strftime('%Y年') %>
             <% end %>
-            <%= pevent.opening_time.strftime('%-m/%d') %>
+            <%= pevent.opening_time.strftime('%m/%d') %>
             (<%= @day_of_the_week[pevent.opening_time.wday] %>)
             <%= link_to pevent.title, event_path(id: pevent.id) %>
           <% end %>

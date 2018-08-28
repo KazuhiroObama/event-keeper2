@@ -14,9 +14,9 @@
         <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
         <%= @event.opening_time.strftime('%Y/%m/%d') %>
         (<%= @day_of_the_week[@event.opening_time.wday] %>)
-        <%= @event.opening_time.strftime('%-H:%M ~ ') %>
+        <%= @event.opening_time.strftime('%H:%M ~ ') %>
         <% if @event.ending_time.present? %>
-          <%= @event.ending_time.strftime('%-H:%M') %>
+          <%= @event.ending_time.strftime('%H:%M') %>
         <% end %>
       </div>
 

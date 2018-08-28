@@ -15,7 +15,7 @@
         <p class="date"><%= event.opening_time.strftime('%m/%d') %></p>
         <p class="time">
           (<%= @day_of_the_week[event.opening_time.wday] %>)
-          <span class="dtstart"><%= event.opening_time.strftime('%-H:%M~') %></span>
+          <span class="dtstart"><%= event.opening_time.strftime('%H:%M~') %></span>
         </p>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-0 col-lg-0"></div>

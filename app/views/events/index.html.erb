@@ -23,7 +23,7 @@
         <div class="upcoming-event-inner">
           <p class="event-owner">
             企画者：
-            <%= link_to event.organizer.name, user_path(id: event.organizer_id) %>
+            <%= link_to event.organizer.name, users_show_path(id: event.organizer_id) %>
           </p>
           <p class="event-title">
             タイトル：

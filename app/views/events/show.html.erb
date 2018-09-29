@@ -21,7 +21,7 @@
       </div>
 
       <div class="event-show organizer">
-        主催者：<%= link_to @event.organizer.name, user_path(id: @event.organizer_id) %>
+        主催者：<%= link_to @event.organizer.name, users_show_path(id: @event.organizer_id) %>
       </div>
 
       <div class="event-show content">
@@ -32,7 +32,7 @@
       <div class="event-show participant">
         参加者：
         <% @event.participants.each do |participant| %>
-          <%= link_to participant.name, user_path(id: participant.id) %>　
+          <%= link_to participant.name, users_show_path(id: participant.id) %>　
         <% end %>
       </div>
 
@@ -42,7 +42,7 @@
             <% if @management.present? %>
               <%= link_to '　　　参加キャンセル　　　', management_path(id: @management.id), method: :delete, class: 'btn btn-warning', data: { confirm: '参加申し込みをキャンセルしますか？' } %>
             <% else %>
-              <%= link_to '　　　参加申し込み　　　', managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary', data: { confirm: '参加申し込みを確定させますか？' } %>
+              <%= link_to '　　　参加申し込み　　　', managements_path(event_id: @event.id), method: :past, class: 'btn btn-primary', data: { confirm: '参加申し込みを確定させますか？' } %>
             <% end %>
             </br></br>
             最大参加人数：<%= @event.maximum_number_of_people %>人</br>

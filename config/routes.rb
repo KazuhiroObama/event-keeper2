@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :events do
-    get :post, on: :collection
+    get :past, on: :collection
     resources :comments, only: [:create, :destroy]
   end
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

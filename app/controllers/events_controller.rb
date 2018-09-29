@@ -1,26 +1,24 @@
 class EventsController < ApplicationController
+  include Common
+
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :ensure_event_user, only: [:crate, :update, :destroy]
+  before_action :get_day_of_the_week, only: [:index, :past, :show]
 
   def index
-    events = Event.order(:opening_time)
-    @events = []
-    events.each { |event| @events << event if Time.zone.now < event.opening_time }
-    @day_of_the_week = %w[日 月 火 水 木 金 土]
+    @events = Event.future
   end
 
-  def post
-    events = Event.order(:opening_time)
-    @events = []
-    events.each { |event| @events << event if Time.zone.now >= event.opening_time }
-    @day_of_the_week = %w[日 月 火 水 木 金 土]
+  def past
+    @events = Event.past
   end
 
   def show
     @management = current_user.managements.find_by(event_id: @event.id) if current_user.present?
+    current_user.managements.find_by(event_id: @event.id) if current_user.present?
     @comments = @event.comments
     @comment = @event.comments.build
-    @day_of_the_week = %w[日 月 火 水 木 金 土]
+    # @day_of_the_week = %w[日 月 火 水 木 金 土]
     @remainings = @event.maximum_number_of_people - @event.participants.count
   end
 
@@ -36,11 +34,7 @@ class EventsController < ApplicationController
     @event.organizer_id = current_user.id
 
     if @event.save
-      @event.update("event_day(1i)" => @event.opening_time.year.to_s,
-                    "event_day(2i)"=> @event.opening_time.month.to_s,
-                    "event_day(3i)"=> @event.opening_time.day.to_s
-                    )
-      flash["alert-success"] = "イベントを企画しました"
+      flash['alert-success'] = 'イベントを企画しました'
       redirect_to event_path(@event)
     else
       render :new
@@ -49,20 +43,20 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      flash["alert-info"] = "イベント情報を更新しました"
+      flash['alert-info'] = 'イベント情報を更新しました'
       redirect_to @event
     else
-      flash["alert-warning"] = "イベント情報の更新に失敗しました"
+      flash['alert-warning'] = 'イベント情報の更新に失敗しました'
       render :edit
     end
   end
 
   def destroy
     if @event.destroy
-      flash["alert-info"] = "イベントを破棄しました"
+      flash['alert-info'] = 'イベントを破棄しました'
       redirect_to events_url
     else
-      flash["alert-info"] = "イベントの破棄に失敗しました"
+      flash['alert-info'] = 'イベントの破棄に失敗しました'
       render :edit
     end
   end
@@ -87,7 +81,7 @@ class EventsController < ApplicationController
 
     def ensure_event_user
       if @event.organizer.id != current_user.id
-        flash["alert-danger"] = "権限がありません"
+        flash['alert-danger'] = '権限がありません'
         redirect_to event_path(@event)
       end
     end

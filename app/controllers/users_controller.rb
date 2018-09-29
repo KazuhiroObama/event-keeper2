@@ -5,15 +5,15 @@ class UsersController < ApplicationController
     @organizer_events = @user.organizer_events.order(:opening_time)
     @participant_events = @user.participation_events.order(:opening_time)
     @organizer_future_events = []
-    @organizer_post_events = []
+    @organizer_past_events = []
     @participant_future_events = []
-    @participant_post_events = []
+    @participant_past_events = []
     @organizer_events.zip(@participant_events) do |oevent, pevent|
       if oevent.present?
         if Time.zone.now < oevent.opening_time
           @organizer_future_events << oevent
         else
-          @organizer_post_events << oevent
+          @organizer_past_events << oevent
         end
       end
 
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         if Time.zone.now < pevent.opening_time
           @participant_future_events << pevent
         else
-          @participant_post_events << pevent
+          @participant_past_events << pevent
         end
       end
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
     def set_user
       @user = User.find(params[:id])
     end
